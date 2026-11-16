@@ -1,0 +1,30 @@
+# Local test only (mirrors the Railway template). Not used by Railway.
+services:
+  postgres:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: localtest
+      POSTGRES_DB: railway
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    labels: [her=2331]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 3s
+      retries: 20
+  hasura:
+    build: .
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      PORT: "8080"
+      HASURA_GRAPHQL_ADMIN_SECRET: localtest-admin-secret
+      HASURA_GRAPHQL_METADATA_DATABASE_URL: postgres://postgres:localtest@postgres:5432/railway
+      HASURA_GRAPHQL_DATABASE_URL: postgres://postgres:localtest@postgres:5432/railway
+    ports:
+      - "42331:8080"
+    labels: [her=2331]
+volumes:
+  pgdata:
