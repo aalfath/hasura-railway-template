@@ -1,3 +1,5 @@
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/hasura-2?utm_medium=integration&utm_source=button&utm_campaign=hasura)
+
 # Hasura GraphQL Engine on Railway
 
 A Railway template for [Hasura GraphQL Engine](https://github.com/hasura/graphql-engine) **v2.51.8**: instant realtime GraphQL and REST APIs over Postgres, with role-based permissions, event triggers and scheduled triggers.
