@@ -2,7 +2,7 @@
 
 # Hasura GraphQL Engine on Railway
 
-A Railway template for [Hasura GraphQL Engine](https://github.com/hasura/graphql-engine) **v2.51.8**: instant realtime GraphQL and REST APIs over Postgres, with role-based permissions, event triggers and scheduled triggers.
+A Railway template for [Hasura GraphQL Engine](https://github.com/hasura/graphql-engine) **v2.51.9**: instant realtime GraphQL and REST APIs over Postgres, with role-based permissions, event triggers and scheduled triggers.
 
 It is built to slot into a project that already runs an app on Railway: point Hasura at your existing Postgres over Railway's private network and get a GraphQL API on top of it.
 
@@ -10,7 +10,7 @@ It is built to slot into a project that already runs an app on Railway: point Ha
 
 | Service | Source | Notes |
 |---|---|---|
-| `Hasura` | this repo (`Dockerfile`) | Official `hasura/graphql-engine:v2.51.8` image, pinned by digest. Public domain, health check `/healthz`. |
+| `Hasura` | this repo (`Dockerfile`) | Official `hasura/graphql-engine:v2.51.9` image, pinned by digest. Public domain, health check `/healthz`. |
 | `Postgres` | Railway Postgres | Hasura's metadata database (and the default data source until you change it). Data on a volume. |
 
 The wrapper is small: `start.sh` makes Hasura listen on Railway's `PORT`, and refuses to start without an admin secret or a database URL, so the GraphQL endpoint is never left open. The console is on, dev mode and telemetry are off.
